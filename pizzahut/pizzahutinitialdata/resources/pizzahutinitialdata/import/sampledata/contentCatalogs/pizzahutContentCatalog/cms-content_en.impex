@@ -1,0 +1,202 @@
+# ImpEx for Importing CMS Content
+# English Localisation
+
+# Macros / Replacement Parameter definitions
+$contentCatalog=pizzahutContentCatalog
+
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$picture=media(code, $contentCV);
+$siteResource=jar:com.pizzahutstore.initialdata.setup.InitialDataSystemSetup&/pizzahutinitialdata/import/sampledata/contentCatalogs/$contentCatalog
+
+# Language
+$lang=en
+
+# Site Logo Component
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+;;SiteLogoComponent;/images/theme/logo-pizzahut.png
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;PizzaCategoryLink;"Pizza"
+;;SupremeCategoryLink;"Supreme"
+;;SignatureCategoryLink;"Signature"
+;;FavouriteCategoryLink;"Favourite"
+;;ClassicCategoryLink;"Classic"
+;;KurkureCategoryLink;"Kurkure"
+;;SupremeNonVegCategoryLink;"Supreme Non-Veg"
+;;SignatureNonVegCategoryLink;"Signature Non-Veg"
+;;FavouriteNonVegCategoryLink;"Favourite Non-Veg"
+;;ClassicNonVegCategoryLink;"Classic Non-Veg"
+;;KurkureNonVegCategoryLink;"Kurkure Non-Veg"
+;;SidesCategoryLink;"Sides"
+;;DrinksCategoryLink;"Drinks & Desserts"
+;;CombosCategoryLink;"Combos"
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;PizzaNavNode;"PIZZA"
+;;VegLinksNavNode;"VEG"
+;;NonvegLinksNavNode;"NON VEG"
+;;SidesNavNode;"SIDES"
+;;DrinksNavNode;"DRINKS & DESSERTS"
+#;;CombosNavNode;"COMBOS"
+
+#####################################################
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;AboutPizzaHutLink;"About Us"
+;;AboutHybrisLink;"About hybris"
+;;AccountAddressBookLink;"Address Book"
+;;AccountHomeLink;"My Account"
+;;AccountManageAddressLink;"Manage your delivery addresses"
+;;AccountManagePaymentDetailsLink;"Manage your payment details"
+;;AccountOrderHistoryLink;"Order History"
+;;AccountPaymentDetailsLink;"Payment Details"
+;;AccountPersonalDetailsLink;"Update personal details"
+;;AccountProfileLink;"Profile"
+;;AccountUpdatePasswordLink;"Change your password"
+;;AccountViewOrderHistoryLink;"View order history"
+;;AgileCommerceBlogLink;"Agile Commerce Blog"
+#;;AllBrandsCategoryLink;"Brands"
+#;;BlackAndWhiteFilmsCategoryLink;"Black & White Films"
+#;;BlankVideotapesCategoryLink;"Blank Videotapes"
+#;;CameraAccessoriesCategoryLink;"Camera Accessories & Supplies"
+#;;CameraLensesCategoryLink;"Camera Lenses"
+#;;CamerasCategoryLink;"Cameras"
+#;;CamerasFlashesCategoryLink;"Camera Flashes"
+#;;CanonBrandCategoryLink;"Canon"
+#;;ColourFilmsCategoryLink;"Color Films"
+#;;ComponentsCategoryLink;"Components"
+;;ContactUsLink;"Contact Us"
+#;;DigitalCamerasCategoryLink;"Digital Cameras"
+#;;DigitalCompactsCategoryLink;"Compact Cameras"
+#;;DigitalSLRCategoryLink;"SLR Cameras"
+;;DocumentationLink;"Documentation"
+;;FAQLink;"FAQ"
+;;FacebookLink;"Facebook"
+#;;FilmCamerasCategoryLink;"Film Cameras"
+#;;FlashMemoryCategoryLink;"Flash Memory"
+#;;FujifilmBrandCategoryLink;"Fujifilm"
+#;;HandheldCamcordersCategoryLink;"Hand Held Camcorders"
+;;HomepageNavLink;"Home"
+#;;IciduBrandCategoryLink;"Icidu"
+#;;KingstonBrandCategoryLink;"Kingston"
+#;;KodakBrandCategoryLink;"Kodak"
+;;LinkedInLink;"Linked In"
+#;;PowerSuppliesCategoryLink;"Power Supplies"
+#;;SamsungBrandCategoryLink;"Samsung"
+#;;SonyBrandCategoryLink;"Sony"
+#;;SpecialOffersLink;"Special Offers"
+#;;SweexBrandCategoryLink;"Sweex"
+#;;TDKBrandCategoryLink;"TDK"
+#;;ToshibaBrandCategoryLink;"Toshiba"
+#;;TripodsCategoryLink;"Tripods"
+;;TwitterLink;"Twitter"
+
+# CMS Mini Cart Component
+UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;title[lang=$lang]
+;;MiniCart;Mini Cart;"YOUR SHOPPING CART"
+
+# CMS tabs components
+UPDATE CMSTabParagraphComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang];content[lang=$lang]
+;;deliveryTab;Delivery;"<table border=""0"" cellspacing=""0"" cellpadding=""10"" style="" empty-cells: show; font-size: 12px; padding: 0px; margin: 0px;"">  <tbody>    <tr style=""padding: 0px; margin: 0px;"">      <td colspan=""4"" style=""vertical-align: top; text-align: left; font-weight: normal; padding: 0px; margin: 0px;"">        <div style=""padding-top: 10px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-bottom-width: 1px; border-top-width: 1px; margin: 0px;"">          <p align=""justify""></p>  *Order of 4 or more Pizzas qualifies as a bulk order. Not valid for service promise of '30 minutes or free'. Maximum Pizza Hut liability is Rs300. '30 minutes or free' promise applicable at first barrier point (security guard/reception etc.) Pizza Hut reserves the right to withdraw the service promise w ithout prior information.'30 minutes or free' promise is not Applicable on New Year's Eve, public holidays and religious festivals.  <p align=""justify""> The service promise may be withdrawn temporarily in view Of difficult operating conditions for delivery, to be  announced at the time of order taking. Valid only on home delivery. Minimum order of 1 pizza or Magic Pan set of 4  required for delivery. Extra charges will be levied for carry bags. Prices subject to change without prior notice.  Taxes Extra Conditions Apply </p>        </div>      </td>    </tr>  </tbody></table>"
+
+# CMS Footer Component
+UPDATE FooterComponent;$contentCV[unique=true];uid[unique=true];notice[lang=$lang]
+;;FooterComponent;"© 2015 hybris software"
+
+# CMS Paragraph Component (Contact information)
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
+;;ContactInfo;;"Call us: +1 302 295 5067"
+
+# CMS ProductReferences Components
+UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;CrossSelling;"You may also like..."
+;;Others;"Accessories"
+;;Similar;"You may also like..."
+;;accessories;"Accessories"
+
+# CMS PurchasedCategorySuggestion Components
+UPDATE PurchasedCategorySuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;PurchasedCategorySuggestions;"You may also like..."
+
+# CMS CartSuggestion Components
+UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;CartSuggestions;"You may also like..."
+
+# Category Pages
+UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+#;;Cameras;"Cameras"
+#;;DigitalCameras;"Digital Cameras"
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;PizzaHutNavNode;"PizzaHut"
+#;;AccessoriesNavNode;"Accessories"
+#;;AccessoryBrandLinksNavNode;"Accessories"
+;;AccountAddressBookNavNode;"Address Book"
+;;AccountLeftNavNode;"My Account"
+;;AccountOrderHistoryNavNode;"Order History"
+;;AccountPaymentDetailsNavNode;"Payment Details"
+;;AccountProfileNavNode;"Profile"
+#;;BrandLinksNavNode;"Cameras"
+#;;BrandsNavNode;"Brands"
+#;;CameraAccessoriesNavNode;"Camera Accessories & Supplies"
+#;;CamerasNavNode;"Cameras"
+#;;DigitalCamerasNavNode;"Digital Cameras"
+;;ElectronicsNavNode;"Electronics Site"
+#;;FilmCamerasNavNode;"Film Cameras"
+#;;FlashMemoryNavNode;"Flash Memory"
+;;FollowUsNavNode;"Follow Us"
+#;;HandheldCamcordersNavNode;"Hand Held Camcorders"
+;;HybrisNavNode;"Hybris"
+#;;PowerSuppliesNavNode;"Power Supplies"
+;;SiteRootNode;"SiteRoot"
+#;;SuppliesNavNode;"Supplies"
+#;;WebcamsNavNode;"Webcams"
+
+# Media Content
+INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];&imageRef;folder(qualifier)[default='images'];altText
+;;Home4Banner.jpg;$siteResource/images/banners/homepage/Home4Banner.jpg;;Home4Banner.jpg;;"Magic Menu"
+;;Home5Banner.jpg;$siteResource/images/banners/homepage/Home5Banner.jpg;;Home5Banner.jpg;;"Party Box"
+;;Home6Banner.jpg;$siteResource/images/banners/homepage/Home6Banner.jpg;;Home6Banner.jpg;;"Tuscani Singles"
+;;LeftPizzaBanner.jpg;$siteResource/images/banners/homepage/LeftPizzaBanner.jpg;;LeftPizzaBanner.jpg;;"Traditional Italian"
+;;RightPizzaBanner.jpg;$siteResource/images/banners/homepage/RightPizzaBanner.jpg;;RightPizzaBanner.jpg;;"Tomatina Garlic Bread"
+;;LeftMiddPizzaBanner.jpg;$siteResource/images/banners/homepage/LeftMiddPizzaBanner.jpg;;LeftMiddPizzaBanner.jpg;;"Chicken Royale Baked Pasta"
+;;RightMiddPizzaBanner.jpg;$siteResource/images/banners/homepage/RightMiddPizzaBanner.jpg;;RightMiddPizzaBanner.jpg;;"Veg Stuffed Pockets"
+
+;;Home1Banner.jpg;$siteResource/images/banners/homepage/Home1Banner.jpg;;Home1Banner.jpg;;"Weekday Specials"
+;;Home2Banner.jpg;$siteResource/images/banners/homepage/Home2Banner.jpg;;Home2Banner.jpg;;"Try the New Chilli Cheese Crust"
+;;Home3Banner.jpg;$siteResource/images/banners/homepage/Home3Banner.jpg;;Home3Banner.jpg;;"Try the New Cheese Maxx"
+;;AppBanner.jpg;$siteResource/images/banners/homepage/AppBanner.jpg;;AppBanner.jpg;;"Pizza Hut Offers"
+
+UPDATE BannerComponent;$contentCV[unique=true];uid[unique=true];headline[lang=$lang];$picture[lang=$lang];content[lang=$lang]
+;;Home4Banner;Magic Menu;Home4Banner.jpg;""
+;;Home5Banner;Party Box;Home5Banner.jpg;""
+;;Home6Banner;Tuscani Singles;Home6Banner.jpg;""
+;;LeftPizzaBanner;Traditional Italian;LeftPizzaBanner.jpg;""
+;;RightPizzaBanner;Tomatina Garlic Bread;RightPizzaBanner.jpg;""
+;;LeftMiddPizzaBanner;Chicken Royale Baked Pasta;LeftMiddPizzaBanner.jpg;""
+;;RightMiddPizzaBanner;Veg Stuffed Pockets;RightMiddPizzaBanner.jpg;""
+;;Home1Banner;Weekday Specials;Home1Banner.jpg;""
+;;Home2Banner;Try the New Chilli Cheese Crust;Home2Banner.jpg;""
+;;Home3Banner;Try the New Cheese Maxx;Home3Banner.jpg;""
+;;AppBanner;Pizza Hut Offers;AppBanner.jpg;""
+UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;ElectronicsHomepageProductCarouselComponent;Our Bestselling Pizzas
+
+
+# CMS Paragraph Component (Contact information)
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=en];
+;;faqMenuParagraph;"<div class=""nav_column"">	<div class=""title_holder"">		<div class=""title"">			<div class=""title-top"">				<span></span>			</div>		</div>		<h2>Frequently asked questions</h2>	</div>	<div class=""item"">		<ul class=""facet_block indent"">					<li><a href=""#b00"">Delivery information</a></li>	<li><a href=""#c00"">Nutrition and Quality information</a></li>				<li><a href=""#f00"">Promotions and discounts</a></li>						<li><a href=""#h00"">Store information</a></li>								</ul>	</div></div>";
+;;faqTextParagraph;"<a name=""00""></a><div class=""textpage textpage-faqs""><div class=""item_container"">		</div>		<div class=""item_container"">		<h2><a name=""b00""></a>Delivery information</h2>		<a class=""faq-menulink"" href=""#b01"">Delivery Options</a>		<a class=""faq-menulink"" href=""#b02"">Delivery times &amp; charges</a>		<a class=""faq-menulink"" href=""#b03"">Order tracking information</a>		<a class=""faq-menulink"" href=""#b04"">Courier status information</a>			<h3><a name=""b01""></a>Delivery Options</h3>		<p>			The delivery options available to you are shown in the Checkout area under Delivery Method.<br><br>			Based on your deliver address, these options may not all be available:			</p><ul>			<li>					<b>Home Delivery</b> - Free standard delivery on all orders within 45 minutes (*exceptions may apply)				</li>				<li>					<b>Standard delivery</b> -  30 minutes				</li>				<li>					<b>Other delivery method</b>  &ndash; 30 minutes				</li>	 			</ul>		<p></p>		<h3><a name=""b02""></a>Delivery times &amp; charges</h3>		<p>			We deliver the majority of our orders within 45 minutes			</p>				<li>					Multiple items will be delivered in one parcel.				</li>			</ul>		<p></p>	<h3><a name=""b03""></a>Order tracking information</h3>		<p>			We will send you email updates through every stage of your order. In each email your current order's status will be shown. Each order status is explained in the table below. We deliver our pizzas via our courier. You can track these orders by clicking on the order reference link on your email. Once you have clicked on the link you will be directed to the order tracking website. For information on courier statuses please <a href=""#b04"">click here</a>.		</p>		<table width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">			<tbody>				<tr>					<th>Status</th>					<th>Description</th>				</tr>				<!--ROW 1-->				<tr>					<td class=""blue3"">						<strong>Processing</strong><br>					</td>					<td class=""grey3"">						Your order is being processed.<br>					</td>				</tr>				<!--ROW 2-->	<tr>					<td class=""blue3"">						<strong>Despatched</strong><br>					</td>					<td class=""grey3""> Your order has been dispatched.						</td>				</tr>				<!--ROW 3-->				<tr>					<td class=""blue3"">						<strong>Unable to fulfil</strong>					</td>					<td class=""grey3"">						Your order has been cancelled due to stock unavailability, no payment has been taken.					</td>				</tr>														<!--ROW 5-->				<tr>					<td class=""blue3"">						<strong>Return received</strong><br>					</td> <td class=""grey3""> We are processing your return.</td></tr>			<!--ROW 9--><tr><td class=""blue3""><strong>Return refund complete</strong><br>					</td>					<td class=""grey3"">						We have processed your return.<br><br><strong><i>Please note:</i></strong>  Some banks may take longer than others to process refunds.<br><br>					</td>				</tr>			</tbody>		</table>		<p></p>		<h3><a name=""b04""></a>Courier status information</h3>		<p></p>		<table width=""100%"" cellspacing=""0"" cellpadding=""0"" border=""0"">			<tbody>				<tr>					<th>Status</th>					<th>Description</th>				</tr>			<!--ROW 1-->				<tr>					<td class=""blue3"">						<strong>Order generated</strong><br>					</td>					<td class=""grey3"">						Your order is ready for delivery and has entered into the courier system.<br>					</td>				</tr>																			<!--ROW 4-->				<tr>					<td class=""blue3"">						<strong>Out for delivery </strong><br>					</td>					<td class=""grey3"">						Your order has left  for delivery.					</td>				</tr>														</tbody>		</table>		<p></p>		<a class=""pagetop-link"" href=""#00"">back to top</a>	</div>	<div class=""item_container"">		<h2><a name=""f00""></a>Promotions and discounts</h2>		<p>Check out our Homepage for daily discounts and save more!</p>		<a class=""pagetop-link"" href=""#00"">back to top</a>	</div>	<div class=""item_container"">		<h2><a name=""c00""></a>Nutrition and Quality Information</h2>		<p>At Pizza Hut, we take great pride and care to serve you with the best quality of food and dining experience. All our food contains 0 added transfat and no MSG.</p>		<a class=""pagetop-link"" href=""#00"">back to top</a>	</div>	<div class=""item_container"">		<h2><a name=""h00""></a>Store information</h2>		<p>Locate us at </p>		<a class=""pagetop-link"" href=""#00"">back to top</a>	</div>									";
+
+INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
+;;NoSearchResultsParagraphComponent;"<h2>Sorry, we couldn't find any results for your search</h2><p>Suggestions</p><ul><li>You may have typed your word incorrectly - please check for misspellings</li><li>You may have been too specific - please broaden your search by using fewer keywords</li><li>Browse our products by selecting a category above</li></ul>"
+
+
+
+UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];content[lang=$lang]
+;;EmptyCartParagraphComponent;"<h2>Your shopping cart is empty</h2><p>Suggestions</p><ul><li>Browse our products by selecting a category above</li></ul>"
+;;HelpParagraphComponent;"<div class=""helpBanner""><span class=""bannerHeadline"" >NEED HELP?</span><span class=""bannerText"">Click here for help with checking out<a href=""#"" >GO > ></a></span></div>"
+

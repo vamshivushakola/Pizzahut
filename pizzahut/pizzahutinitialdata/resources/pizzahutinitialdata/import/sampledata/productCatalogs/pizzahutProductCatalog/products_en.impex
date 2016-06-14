@@ -1,0 +1,94 @@
+# ImpEx for Importing Product Localisations into Merchandise store
+  
+# Macros / Replacement Parameter definitions
+$productCatalog=pizzahutProductCatalog
+  
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+  
+# Language
+$lang=en
+  
+UPDATE Product;$catalogVersion;code[unique=true];name[lang=$lang];summary[lang=$lang];description[lang=$lang];PizzahutSizeVariantProduct.size[lang=$lang]
+;;0001;Veggie Supreme;Mushroom, capsicum, onion, tomato, baby corn and olives.;"<p>Crispy, Buttery Pan base with a decadence of cheese & flavour. The base is doused with a Peruvian cream cheese, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of Mozzarella Cheese along with a Smoked Texas cheese sauce. Now flavour & cheese come together in every bite making it a Pizza Lovers delight!.</p>";;
+;;0001_S;Veggie Supreme;Mushroom, capsicum, onion, tomato, baby corn and olives.;"<p>Crispy, Buttery Pan base with a decadence of cheese & flavour. The base is doused with a Peruvian cream cheese, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of Mozzarella Cheese along with a Smoked Texas cheese sauce. Now flavour & cheese come together in every bite making it a Pizza Lovers delight!.</p>";Small;
+;;0001_L;Veggie Supreme;Mushroom, capsicum, onion, tomato, baby corn and olives.;"<p>Crispy, Buttery Pan base with a decadence of cheese & flavour. The base is doused with a Peruvian cream cheese, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of Mozzarella Cheese along with a Smoked Texas cheese sauce. Now flavour & cheese come together in every bite making it a Pizza Lovers delight!.</p>";Large;
+
+;;0002;Fiery Ride;Tomato, Onion, Capsicum, Sweet Corn , Olives , Jalapenos & Green Chillies;"<p>This traditional Italian dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal</p>";
+;;0002_S;Fiery Ride;Tomato, Onion, Capsicum, Sweet Corn , Olives , Jalapenos & Green Chillies;"<p>This traditional Italian dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal</p>";Small;
+;;0002_M;Fiery Ride;Tomato, Onion, Capsicum, Sweet Corn , Olives , Jalapenos & Green Chillies;"<p>This traditional Italian dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal</p>";Medium;
+;;0002_L;Fiery Ride;Tomato, Onion, Capsicum, Sweet Corn , Olives , Jalapenos & Green Chillies;"<p>This traditional Italian dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal</p>";Large;
+
+;;0003;Exotica;Red capsicum, baby corn, capsicum, olives and jalapenos.;"<p>Buttery Pan base with a cheese & flavour. thin crust with toppings from cream cheese, topped with 100 % Mozzarella cheese Now flavour & cheese come together in every bite making it a Pizza Lovers delight!</p>";
+;;0003_S;Exotica;Red capsicum, baby corn, capsicum, olives and jalapenos.;"<p>Buttery Pan base with a cheese & flavour. thin crust with toppings from cream cheese, topped with 100 % Mozzarella cheese Now flavour & cheese come together in every bite making it a Pizza Lovers delight!</p>";Small;
+;;0003_M;Exotica;Red capsicum, baby corn, capsicum, olives and jalapenos.;"<p>Buttery Pan base with a cheese & flavour. thin crust with toppings from cream cheese, topped with 100 % Mozzarella cheese Now flavour & cheese come together in every bite making it a Pizza Lovers delight!</p>";Medium;
+;;0003_L;Exotica;Red capsicum, baby corn, capsicum, olives and jalapenos.;"<p>Buttery Pan base with a cheese & flavour. thin crust with toppings from cream cheese, topped with 100 % Mozzarella cheese Now flavour & cheese come together in every bite making it a Pizza Lovers delight!</p>";Large;
+
+;;0004;Paneer VegoRama;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>A baked pie of Italian origin consisting of a shallow breadlike crust covered with toppings such as seasoned tomato sauce, cheese, or sausage.</p>";
+;;0004_S;Paneer VegoRama;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>A baked pie of Italian origin consisting of a shallow breadlike crust covered with toppings such as seasoned tomato sauce, cheese, or sausage.</p>";Small;
+;;0004_M;Paneer VegoRama;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>A baked pie of Italian origin consisting of a shallow breadlike crust covered with toppings such as seasoned tomato sauce, cheese, or sausage.</p>";Medium;
+;;0004_L;Paneer VegoRama;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>A baked pie of Italian origin consisting of a shallow breadlike crust covered with toppings such as seasoned tomato sauce, cheese, or sausage.</p>";Large;
+
+;;0005;Country Feast;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>chessy baked pizza with Sweet corn, mushroom, tomato, onion and capsicum and also covered with toppings such as seasoned tomato sauce</p>";
+;;0005_S;Country Feast;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>chessy baked pizza with Sweet corn, mushroom, tomato, onion and capsicum and also covered with toppings such as seasoned tomato sauce</p>";Small;
+;;0005_M;Country Feast;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>chessy baked pizza with Sweet corn, mushroom, tomato, onion and capsicum and also covered with toppings such as seasoned tomato sauce</p>";Medium;
+;;0005_L;Country Feast;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>chessy baked pizza with Sweet corn, mushroom, tomato, onion and capsicum and also covered with toppings such as seasoned tomato sauce</p>";Large;
+
+;;0006;Paneer Makhani;Paneer, capsicum, onion, and red paprika.;"<p>Paneer with a decadence of cheese & flavour. The base is doused with a Paneer, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of paneer and malai. Now flavour & paneer come together in every bite making it a Pizza Lovers delight!.</p>";
+;;0006_S;Paneer Makhani;Paneer, capsicum, onion, and red paprika.;"<p>Paneer with a decadence of cheese & flavour. The base is doused with a Paneer, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of paneer and malai. Now flavour & paneer come together in every bite making it a Pizza Lovers delight!.</p>";Small;
+;;0006_M;Paneer Makhani;Paneer, capsicum, onion, and red paprika.;"<p>Paneer with a decadence of cheese & flavour. The base is doused with a Paneer, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of paneer and malai. Now flavour & paneer come together in every bite making it a Pizza Lovers delight!.</p>";Medium;
+;;0006_L;Paneer Makhani;Paneer, capsicum, onion, and red paprika.;"<p>Paneer with a decadence of cheese & flavour. The base is doused with a Paneer, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of paneer and malai. Now flavour & paneer come together in every bite making it a Pizza Lovers delight!.</p>";Large;
+
+;;0007;Veggie Lovers;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>Veggie lovers will love this pizza as it contains all veggies taste in it with a specialized veggie stuffs like paneer and cheese and with topping such as Sweet corn, mushroom, tomato, onion and capsicum.</p>";
+;;0007_S;Veggie Lovers;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>Veggie lovers will love this pizza as it contains all veggies taste in it with a specialized veggie stuffs like paneer and cheese and with topping such as Sweet corn, mushroom, tomato, onion and capsicum.</p>";Small;
+;;0007_M;Veggie Lovers;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>Veggie lovers will love this pizza as it contains all veggies taste in it with a specialized veggie stuffs like paneer and cheese and with topping such as Sweet corn, mushroom, tomato, onion and capsicum.</p>";Medium;
+;;0007_L;Veggie Lovers;Sweet corn, mushroom, tomato, onion and capsicum.;"<p>Veggie lovers will love this pizza as it contains all veggies taste in it with a specialized veggie stuffs like paneer and cheese and with topping such as Sweet corn, mushroom, tomato, onion and capsicum.</p>";Large;
+
+;;0008;Tandoori Paneer;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;;"<p>This traditional Tandori dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal.</p>";
+;;0008_S;Tandoori Paneer;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>This traditional Tandori dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal.</p>";Small;
+;;0008_M;Tandoori Paneer;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>This traditional Tandori dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal.</p>";Medium;
+;;0008_L;Tandoori Paneer;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;"<p>This traditional Tandori dish you can order today and in the office and at home. Hot pizza fit for a snack at lunchtime, and treats for friends. And if you believe one online survey, almost 80 % of Internet users called pizza favorite meal.</p>";Large;
+
+;;0009;Country Special;Paneer, capsicum, onion, and red paprika.;"<p>All taste in one pizza is available here for you guyss with your favourite topping such as Paneer, capsicum, onion, and red paprika.Order now and try a country Special taste in 1 pizza.</p>";
+;;0009_S;Country Special;Paneer, capsicum, onion, and red paprika.;"<p>All taste in one pizza is available here for you guyss with your favourite topping such as Paneer, capsicum, onion, and red paprika.Order now and try a country Special taste in 1 pizza.</p>";Small;
+;;0009_M;Country Special;Paneer, capsicum, onion, and red paprika.;"<p>All taste in one pizza is available here for you guyss with your favourite topping such as Paneer, capsicum, onion, and red paprika.Order now and try a country Special taste in 1 pizza.</p>";Medium;
+;;0009_L;Country Special;Paneer, capsicum, onion, and red paprika.;"<p>All taste in one pizza is available here for you guyss with your favourite topping such as Paneer, capsicum, onion, and red paprika.Order now and try a country Special taste in 1 pizza.</p>";Large;
+
+;;0010;Farmhouse;Mushroom, onion, tomato and capsicum;"<p>Non veg taste in veg pizza.Try this pizza and get a fun of non-veg taste with a crunch and special topping such as Mushroom, onion, tomato and capsicum in a resonable rate.Order now and enjoy a non veg taste in veg pizza.</p>";
+;;0010_S;Farmhouse;Mushroom, onion, tomato and capsicum;"<p>Non veg taste in veg pizza.Try this pizza and get a fun of non-veg taste with a crunch and special topping such as Mushroom, onion, tomato and capsicum in a resonable rate.Order now and enjoy a non veg taste in veg pizza.</p>";Small;
+;;0010_M;Farmhouse;Mushroom, onion, tomato and capsicum;"<p>Non veg taste in veg pizza.Try this pizza and get a fun of non-veg taste with a crunch and special topping such as Mushroom, onion, tomato and capsicum in a resonable rate.Order now and enjoy a non veg taste in veg pizza.</p>";Medium;
+;;0010_L;Farmhouse;Mushroom, onion, tomato and capsicum;"<p>Non veg taste in veg pizza.Try this pizza and get a fun of non-veg taste with a crunch and special topping such as Mushroom, onion, tomato and capsicum in a resonable rate.Order now and enjoy a non veg taste in veg pizza.</p>";Large;
+
+;;0011;Veggie Crunch;Paneer, capsicum, onion, and red paprika.;;"<p>Soft dough pizza ia available is many varieties.Try Crispy and Crunch pizza base with your favourite ingredients such as Paneer, capsicum, onion, and red paprika.</p>";
+;;0012;Spicy Veggie;Sweet corn, mushroom, tomato, onion and capsicum.;;"<p>An amazing and delectable spicy vegetarian pizza recipe is a favorite and with spicy ingredients such as Sweet corn, mushroom, tomato, onion and capsicum which adds a extra flavour to your favourite pizza.</p>";
+;;0013;Simply Veg;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;;"<p>This pizza comes with a taste of all the toppings and adds a extra flavour.The base is doused with a Peruvian cream cheese, topped with 100 % Mozzarella cheese & the crust is stuffed with loads of Mozzarella Cheese along with a Smoked Texas cheese sauce. </p>";
+;;0014;Double Cheese;Paneer, capsicum, onion, and red paprika.;;"<p>The Double Cheese looked a bit like a bright Thousand Island or secret sauce but the taste is more mild, creamy, and savory with very light hints of ketchup and mustard. It provided the base that underpinned the burger-ness of the pizza.</p>";
+;;0015;Margherita;Mushroom, onion, tomato and capsicum;;"<p>The secret to a great pizza Margherita is to use the best ingredients you can find—and to approach them with restraint. (Just because a little cheese is good doesn't mean a lot will be better!) We always start with our all-time favorite pizza dough, adapted from chef Chris Bianco, of Pizzeria Bianco, in Phoenix. This slightly wet dough, in conjunction with a hot pizza stone, produces a crisp yet chewy crust, the perfect canvas for bright homemade tomato sauce, fresh mozzarella, and verdant basil leaves.</p>";
+;;0016;Spicy Chilly Cheese;Paneer, capsicum, onion, and red paprika.;;"<p>There's a pretty good chili smell to the pizza. The chili sauce itself comes in lieu of the pizza sauce and is a more bean-heavy rather than meaty chili sauce. It has the requisite seasoned flavor with a bit of tang as well as a small kick to it.</p>";
+;;0017;Tomatino;Sweet corn, mushroom, tomato, onion and capsicum.;;"<p>All of pizzas, calzones, sandwiches, salads, and breads are made fresh in house daily and all desserts are baked at our local neighborhood bakery.</p>";
+;;0018;Peppy Panner;Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies;;"<p>PEPPY PANEER is Chunky paneer with crisp capsicum and spicy red pepper - quite a mouthful! with your favourite toppings such as Paneer, Onion, Capsicum, Sweet Corn, Red Capsicum, Black Olives, Red Paprika & Green Chillies</p>";
+;;0019;Krunchy Kurkure Pizza;Paneer, capsicum, onion, and red paprika.;;"<p>Every time we hear about pizza innovations like the hot dog crust pizza or Pizza Hut’s Triple Treat Box we sigh and wonder why India never gets graced with exciting pizza innovations.However, Pizza Hut recently chased all our woes and complaints awake with the release of their Krunchy Kurkure Pizza which is topped with onions, tomatoes, jalapenos,  and – you guessed it – Kurkure sticks! </p>";
+;;0020;Double Crunchy Cheese;Mushroom, onion, tomato and capsicum;;"<p>Introducing Double Cheese Crunch Pizza. Two crackling, 'crunchy' thin crusts filled with a river of creammmmmy 'cheesy' goodness</p>";
+
+;;0021;Triple Chicken Feast;pieces;A pizza to eat;;"<p></p>";
+;;0022;Chicken Supreme;pieces;A pizza to eat;;;
+;;0023;NonVeggie Crunch;pieces;A pizza to eat;;;
+;;0024;Kadai Chicken;pieces;A pizza to eat;;;
+;;0025;Chicken Tikka;pieces;A pizza to eat;;;
+;;0026;Chick n Spicy;pieces;A pizza to eat;;;
+;;0027;Chicken Margherita;pieces;A pizza to eat;;;
+;;0028;Fiery Chicken;pieces;A pizza to eat;;;
+;;0029;Corn n Chicken;pieces;A pizza to eat;;;
+;;0030;Chicken Crunch;pieces;A pizza to eat;;;
+;;0031;Zesty Chicken;pieces;A pizza to eat;;;
+;;0032;Non Veg Kurkure Pizza;pieces;A pizza to eat;;;
+
+;;0033;Garlic Bread Sticks;pieces;Sides to get along with the pizza;;;
+;;0034;Veg Exotica;pieces;Sides to get along with the pizza;;;
+;;0035;Hot & Spicy Chicken Wings;pieces;Sides to get along with the pizza;;;
+;;0036;Cheesy Garlic Bites;pieces;Sides to get along with the pizza;;;
+;;0037;Hot Potato Shots;pieces;Sides to get along with the pizza;;;
+;;0038;Coke;pieces;Drinks to get along with the pizza;;;
+;;0039;Mountain Dew;pieces;Drinks to get along with the pizza;;;
+;;0040;7UP;pieces;Drinks to get along with the pizza;;;
+;;0041;Choco Mousse;pieces;Desserts to get along with the pizza;;;
+;;0042;Choco Truffle Cake;pieces;Desserts to get along with the pizza;;;

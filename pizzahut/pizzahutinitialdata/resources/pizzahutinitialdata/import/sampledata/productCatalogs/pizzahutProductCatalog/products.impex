@@ -1,0 +1,109 @@
+# ImpEx for Importing Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=pizzahutProductCatalog
+$productCatalogName=Pizzahut Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='check']
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
+ ;0001;101;Supreme;Veggie Supreme;pieces;;PizzahutSizeVariantProduct;
+ ;0002;101;Supreme;Fiery Ride;pieces;;PizzahutSizeVariantProduct;
+ ;0003;101;Supreme;Exotica;pieces;;PizzahutSizeVariantProduct;
+ ;0004;101;Supreme;Paneer Vegorama;pieces;;PizzahutSizeVariantProduct;
+ ;0005;101;Supreme;Country Feast;pieces;;PizzahutSizeVariantProduct;
+ ;0006;102;Signature;Paneer Makhani;pieces;;PizzahutSizeVariantProduct;
+ ;0007;102;Signature;Veggie Lovers;pieces;;PizzahutSizeVariantProduct;
+ ;0008;102;Signature;Tandoori Paneer;pieces;;PizzahutSizeVariantProduct;
+ ;0009;102;Signature;Country Special;pieces;;PizzahutSizeVariantProduct;
+ ;0010;102;Signature;Farmhouse;pieces;;PizzahutSizeVariantProduct;
+ ;0011;103;Favourite;Veggie Crunch;pieces;
+ ;0012;103;Favourite;Spicy Veggie;pieces;
+ ;0013;103;Favourite;Simply Veg;pieces;
+ ;0014;103;Favourite;Double Cheese;pieces;
+ ;0015;104;Classic;Margherita;pieces;
+ ;0016;104;Classic;Spicy Chilly Cheese;pieces;
+ ;0017;104;Classic;Tomatino;pieces;
+ ;0018;104;Classic;Peppy Panner;pieces;
+ ;0019;105;Kurkure;Krunchy Kurkure Pizza;pieces;
+ ;0020;105;Kurkure;Double Crunchy Cheese;pieces;
+ 
+ ;0021;106;Supreme;Triple Chicken Feast;pieces;
+ ;0022;106;Supreme;Chicken Supreme;pieces;
+ ;0023;106;Supreme;NonVeggie Crunch;pieces;
+ ;0024;107;Signature;Kadai Chicken;pieces;
+ ;0025;107;Signature;Chicken Tikka;pieces;
+ ;0026;107;Signature;Chick n Spicy;pieces;
+ ;0027;108;Favourite;Chicken Margherita;pieces;
+ ;0028;108;Favourite;Fiery Chicken;pieces;
+ ;0029;109;Classic;Corn n Chicken;pieces;
+ ;0030;109;Classic;Chicken Crunch;pieces;
+ ;0031;110;Kurkure;Zesty Chicken;pieces;
+ ;0032;110;Kurkure;Non Veg Kurkure Pizza;pieces;
+
+ ;0033;200;;Garlic Bread Sticks;pieces;
+ ;0034;200;;Veg Exotica;pieces;
+ ;0035;200;;Hot & Spicy Chicken Wings;pieces;
+ ;0036;200;;Cheesy Garlic Bites;pieces;
+ ;0037;200;;Hot Potato Shots;pieces;
+ 
+ ;0038;210;;Coke;pieces;
+ ;0039;210;;Mountain Dew;pieces;
+ ;0040;210;;7UP;pieces;
+ ;0041;210;;Choco Mousse;pieces;
+ ;0042;210;;Choco Truffle Cake;pieces;
+ 
+ # Create PizzahutStyleVariantProduct variants
+#INSERT_UPDATE PizzahutStyleVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);swatchColors(code);unit(code)[default='pieces'];varianttype(code);$approved
+ #;103410_snapper;;103410;190100,snow,Quiksilver;BLUE,GREY;pieces;ApparelSizeVariantProduct;
+ 
+ # Create PizzahutSizeVariantProduct variants
+INSERT_UPDATE PizzahutSizeVariantProduct;code[unique=true];$catalogVersion;$baseProduct;supercategories(code,$catalogVersion);unit(code)[default='pieces'];$approved
+#;300460184;;103410_snapper;190100,snow,Quiksilver;pieces;;;
+;0001_S;;0001;101;pieces;
+;0001_L;;0001;101;pieces;
+
+;0002_S;;0002;101;pieces;
+;0002_M;;0002;101;pieces;
+;0002_L;;0002;101;pieces;
+ 
+;0003_S;;0003;101;pieces;
+;0003_M;;0003;101;pieces;
+;0003_L;;0003;101;pieces;
+
+;0004_S;;0004;101;pieces;
+;0004_M;;0004;101;pieces;
+;0004_L;;0004;101;pieces;
+
+;0005_S;;0005;101;pieces;
+;0005_M;;0005;101;pieces;
+;0005_L;;0005;101;pieces;
+
+;0006_S;;0006;102;pieces;
+;0006_M;;0006;102;pieces;
+;0006_L;;0006;102;pieces;
+
+;0007_S;;0007;102;pieces;
+;0007_M;;0007;102;pieces;
+;0007_L;;0007;102;pieces;
+
+;0008_S;;0008;102;pieces;
+;0008_M;;0008;102;pieces;
+;0008_L;;0008;102;pieces;
+
+;0009_S;;0009;102;pieces;
+;0009_M;;0009;102;pieces;
+;0009_L;;0009;102;pieces; 
+ 
+;0010_S;;0010;102;pieces;
+;0010_M;;0010;102;pieces;
+;0010_L;;0010;102;pieces;
+ 
+ 
+ 
+ 
+ 

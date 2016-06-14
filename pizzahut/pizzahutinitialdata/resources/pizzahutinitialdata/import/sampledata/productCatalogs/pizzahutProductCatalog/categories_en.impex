@@ -1,0 +1,31 @@
+# ImpEx for Importing Categories
+
+# Macros / Replacement Parameter definitions
+$productCatalog=pizzahutProductCatalog
+$productCatalogName=Pizzahut Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Language
+$lang=en
+
+# Create Categories
+INSERT_UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+;1;;Pizzahut-Catalogue;
+
+;100;;Pizza;
+;101;;Supreme;
+;102;;Signature;
+;103;;Favourite;
+;104;;Classic;
+;105;;Kurkure;
+;106;;Overloaded;
+;107;;Supreme;
+;108;;Signature;
+;109;;Favourite;
+;110;;Classic;
+
+;200;;Sides;
+;210;;Drinks;
+;220;;Combos;
+

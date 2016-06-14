@@ -1,0 +1,88 @@
+# ImpEx for Points of Service
+
+# Macros / Replacement Parameter definitions
+$storeUid=pizzahut
+$productCatalog=pizzahutProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$storeImage=storeImage(qualifier, $catalogVersion)
+$standardHours=pizzahut-us-standard-hours
+$weekendHours=pizzahut-us-weekend-hours
+
+INSERT_UPDATE OpeningSchedule;code[unique=true];
+;$standardHours;
+;$weekendHours;
+
+INSERT_UPDATE WeekdayOpeningDay;openingSchedule(code)[unique=true];dayOfWeek(code)[unique=true];openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm];
+;$standardHours;MONDAY   ; 09:00; 20:00
+;$standardHours;TUESDAY  ; 09:00; 20:00
+;$standardHours;WEDNESDAY; 09:00; 20:00
+;$standardHours;THURSDAY ; 09:00; 20:00
+;$standardHours;FRIDAY   ; 09:00; 20:00
+;$standardHours;SATURDAY ; 10:00; 20:00
+;$weekendHours;MONDAY   ; 09:00; 20:00
+;$weekendHours;TUESDAY  ; 09:00; 20:00
+;$weekendHours;WEDNESDAY; 09:00; 20:00
+;$weekendHours;THURSDAY ; 09:00; 20:00
+;$weekendHours;FRIDAY   ; 09:00; 20:00
+;$weekendHours;SATURDAY ; 10:00; 20:00
+;$weekendHours;SUNDAY   ; 10:00; 16:00
+
+INSERT_UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];closed;openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm]
+;$standardHours; 01.01.2015 ;true
+;$standardHours; 14.01.2015 ;true
+;$standardHours; 11.02.2015 ;true
+;$standardHours; 20.03.2015 ;true
+;$standardHours; 29.04.2015 ;true
+;$standardHours; 03.05.2015 ;true
+;$standardHours; 04.05.2015 ;true
+;$standardHours; 05.05.2015 ;true
+;$standardHours; 15.07.2015 ;true
+;$standardHours; 16.09.2015 ;true
+;$standardHours; 23.09.2015 ;true
+;$standardHours; 14.10.2015 ;true
+;$standardHours; 03.11.2015 ;true
+;$standardHours; 23.11.2015 ;true
+;$standardHours; 23.12.2015 ;true
+;$weekendHours; 01.01.2015 ;true
+;$weekendHours; 14.01.2015 ;true
+;$weekendHours; 11.02.2015 ;true
+;$weekendHours; 20.03.2015 ;true
+;$weekendHours; 29.04.2015 ;true
+;$weekendHours; 03.05.2015 ;true
+;$weekendHours; 04.05.2015 ;true
+;$weekendHours; 05.05.2015 ;true
+;$weekendHours; 15.07.2015 ;true
+;$weekendHours; 16.09.2015 ;true
+;$weekendHours; 23.09.2015 ;true
+;$weekendHours; 14.10.2015 ;true
+;$weekendHours; 03.11.2015 ;true
+;$weekendHours; 23.11.2015 ;true
+;$weekendHours; 23.12.2015 ;true
+
+
+
+
+
+INSERT_UPDATE PointOfService;name[unique=true];type(code);address(&addrID);latitude;longitude;geocodeTimestamp[dateformat=dd-MM-yyyy];$storeImage;openingSchedule(code);basestore(uid)[default=$storeUid];features(code)
+;warehouse_s;STORE;warehouse_s;33,5933317;130,3515247;11-12-2025;;$standardHours
+;warehouse_n;STORE;warehouse_n;43,070542;141,3533259;11-12-2025;;$standardHours
+
+INSERT_UPDATE Address;&addrID;streetname;streetnumber;postalcode[unique=true];town[unique=true];country(isocode);region(isocode);phone1;owner(PointOfService.name)[unique=true]
+;warehouse_s;Waseda Dori;13;;Mumbai;US;;+81 1988 3600;warehouse_s
+;warehouse_n;Hibiya Dori;20;;Mumbai;US;;+81 4649 8891;warehouse_n
+
+INSERT_UPDATE StoreLocatorFeature;code[unique=true]
+;wheelchair
+;creche
+;sundayWorkshops
+;buyOnlinePickupInStore
+
+
+UPDATE PointOfService;name[unique=true];features(code);
+;warehouse_s;wheelchair,creche,sundayWorkshops,buyOnlinePickupInStore;
+;warehouse_n;wheelchair,creche,sundayWorkshops,buyOnlinePickupInStore;
+
+INSERT_UPDATE PoS2WarehouseRel;source(name)[unique=true];target(code)[unique=true]
+;warehouse_s;warehouse_s
+;warehouse_n;warehouse_n
